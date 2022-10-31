@@ -2,13 +2,13 @@ import { fullCopy } from '../helpers/fullCopy.js';
 import { ddpOnChange } from './ddpOnChange.js';
 import { ddpReactiveCollection } from './ddpReactiveCollection';
 import EJSON from "ejson";
-import simpleDDP from "../simpleDDP";
+import DDPClient from "../DDPClient";
 
 /**
  * DDP collection class.
  * @constructor
  * @param {String} name - Collection name.
- * @param {simpleDDP} server - simpleDDP instance.
+ * @param {DDPClient} server - simpleDDP instance.
  */
 
 export class ddpCollection<T> {
@@ -18,7 +18,7 @@ export class ddpCollection<T> {
   private _server: any;
   private ddpConnection: any;
 
-  constructor(name: string, server: simpleDDP) {
+  constructor(name: string, server: DDPClient) {
     this._name = name;
     this._server = server;
   }

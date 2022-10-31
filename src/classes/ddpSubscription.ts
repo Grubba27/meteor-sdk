@@ -3,9 +3,9 @@
  * @constructor
  * @param {String} pubname - Publication name.
  * @param {Array} args - Subscription arguments.
- * @param {simpleDDP} ddplink - simpleDDP instance.
+ * @param {DDPClient} ddplink - simpleDDP instance.
  */
-import simpleDDP from "../simpleDDP";
+import DDPClient from "../DDPClient";
 
 export class ddpSubscription {
   private _ddplink: any;
@@ -37,7 +37,7 @@ export class ddpSubscription {
 
   private subscriptionId!: string;
 
-  constructor(pubname: string, args: any[], ddplink: simpleDDP) {
+  constructor(pubname: string, args: any[], ddplink: DDPClient) {
     this._ddplink = ddplink;
     this.pubname = pubname;
     this.args = args;

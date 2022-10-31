@@ -62,11 +62,11 @@ export type SimpleDDPConnectOptions = {
 }
 
 /**
- * Creates an instance of simpleDDP class. After being constructed, the instance will
+ * Creates an instance of DDPServerConnection class. After being constructed, the instance will
  * establish a connection with the DDP server and will try to maintain it open.
  * @version 2.2.4
  */
-class simpleDDP {
+class DDPClient {
   private _id = simpleDDPcounter();
   private _opGenId = uniqueIdFuncGen();
   private _opts: SimpleDDPConnectOptions
@@ -110,7 +110,7 @@ class simpleDDP {
    * @param {boolean} [options.clearDataOnReconnection=true] - Whether to clear all collections data after a reconnection. This invokes fake `removed` messages on every document.
    * @param {number} [options.maxTimeout=undefined] - Maximum wait for a response from the server to the method call. Default no maxTimeout.
    * @param {Array} [plugins] - Array of plugins.
-   * @return {simpleDDP} - A new simpleDDP instance.
+   * @return {DDPClient} - A new simpleDDP instance.
    * @example
    * var opts = {
    *    endpoint: "ws://someserver.com/websocket",
@@ -645,4 +645,4 @@ class simpleDDP {
 
 }
 
-export default simpleDDP;
+export default DDPClient;

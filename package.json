@@ -13,7 +13,7 @@
     "client",
     "meteor"
   ],
-  "main": "src/simpleDDP.ts",
+  "main": "src/DDPClient.ts",
   "scripts": {
     "test": "npm run build && mocha",
     "docs": "jsdoc -c jsdoc_conf.json",

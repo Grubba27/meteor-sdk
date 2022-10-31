@@ -12,7 +12,7 @@ const ejson_1 = __importDefault(require("ejson"));
  * DDP collection class.
  * @constructor
  * @param {String} name - Collection name.
- * @param {simpleDDP} server - simpleDDP instance.
+ * @param {DDPClient} server - simpleDDP instance.
  */
 class ddpCollection {
     constructor(name, server) {

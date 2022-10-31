@@ -2,7 +2,7 @@ import EventEmitter from "wolfy87-eventemitter";
 import Queue from "./queue";
 import Socket from "./socket";
 import { generateId } from "./utils";
-import { SimpleDDPConnectOptions } from "../simpleDDP";
+import { SimpleDDPConnectOptions } from "../DDPClient";
 
 const DDP_VERSION = "1";
 const PUBLIC_EVENTS = [

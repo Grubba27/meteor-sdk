@@ -11,9 +11,9 @@
 
 ## Please note
 
-### This is a reimplementation of simpleDDP using TypeScript and other modern tools.
+### This is a reimplementation of DDPClient using TypeScript and other modern tools.
 
-Under the hood is the simpleDDP that everyone knows and loves, but with a new look and feel.
+Under the hood is the DDPClient that everyone knows and loves, but with a new look and feel.
 This is a work in progress, so please be patient with me as I work out the kinks.
 
 ---
@@ -89,21 +89,21 @@ since it works on the client and serverside.
 
 `npm install isomorphic-ws ws --save`
 
-Import/require `simpleDDP`.
+Import/require `DDPClient`.
 
 ```javascript
-const simpleDDP = require("simpleddp"); // nodejs
+const DDPClient = require("simpleddp"); // nodejs
 const ws = require("isomorphic-ws");
 ```
 
 or
 
 ```javascript
-import simpleDDP from 'simpleDDP'; // ES6
+import DDPClient from 'DDPClient'; // ES6
 import ws from 'isomorphic-ws';
 ```
 
-Now you should make a new simpleDDP instance.
+Now you should make a new DDPClient instance.
 
 ```javascript
 let opts = {
@@ -111,10 +111,10 @@ let opts = {
   SocketConstructor: ws,
   reconnectInterval: 5000
 };
-const server = new simpleDDP(opts);
+const server = new DDPClient(opts);
 ```
 
-Connection is not going to be established immediately after you create a simpleDDP instance. If you need to check your
+Connection is not going to be established immediately after you create a DDPClient instance. If you need to check your
 connection simply use `server.connected` property which is `true` if you are connected to the server, otherwise
 it's `false`.
 

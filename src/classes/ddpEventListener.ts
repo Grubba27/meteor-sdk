@@ -2,11 +2,11 @@
  * DDP event listener
  * @param {String} eventname - Event name.
  * @param {Function} f - Function to run when event is fired.
- * @param {simpleDDP} ddplink - simpleDDP instance.
+ * @param {DDPClient} ddplink - simpleDDP instance.
  */
-import simpleDDP, { DDPMessage } from "../simpleDDP";
+import DDPClient, { DDPMessage } from "../DDPClient";
 
-export function ddpEventListener(eventname: string, f: (message: DDPMessage, id: string) => void, ddplink: simpleDDP) {
+export function ddpEventListener(eventname: string, f: (message: DDPMessage, id: string) => void, ddplink: DDPClient) {
   let _started = false
   const start = () => {
     if (!_started) {
