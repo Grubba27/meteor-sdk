@@ -1,0 +1,41 @@
+{
+  "name": "meteor-sdk",
+  "version": "0.0.18",
+  "description": "The aim of this library is to simplify the process of working with meteor server over DDP protocol using external JS environments",
+  "keywords": [
+    "ddp",
+    "simpleddp",
+    "simple",
+    "ddpjs",
+    "ddp.js",
+    "DDP",
+    "WebSocket",
+    "client",
+    "meteor"
+  ],
+  "main": "src/simpleDDP.ts",
+  "scripts": {
+    "test": "npm run build && mocha",
+    "docs": "jsdoc -c jsdoc_conf.json",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublish": "npm run build"
+  },
+  "license": "MIT",
+  "homepage": "https://gregivy.github.io/simpleddp/",
+  "dependencies": {
+    "clone-deep": "^4.0.1",
+    "ejson": "^2.2.0",
+    "wolfy87-eventemitter": "^5.2.9"
+  },
+  "devDependencies": {
+    "@pixi/jsdoc-template": "^2.4.2",
+    "@types/clone-deep": "^4.0.1",
+    "@types/ejson": "^2.2.0",
+    "chai": "^4.2.0",
+    "jsdoc": "^3.6.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.8.4",
+    "ws": "^6.2.1"
+  }
+}
