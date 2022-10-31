@@ -1,6 +1,6 @@
 {
   "name": "meteor-sdk",
-  "version": "0.0.18",
+  "version": "0.0.20",
   "description": "The aim of this library is to simplify the process of working with meteor server over DDP protocol using external JS environments",
   "keywords": [
     "ddp",

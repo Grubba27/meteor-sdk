@@ -9,9 +9,46 @@
 
 # SimpleDDP 🥚
 
-## Important note:
+## Please note
 
-### This is a reimplementation of simpleDDP using TypeScript and other modern tools. Under the hood is the simpleDDP that everyone knows and loves, but with a new look and feel. This is a work in progress, so please be patient with me as I work out the kinks.
+### This is a reimplementation of simpleDDP using TypeScript and other modern tools.
+
+Under the hood is the simpleDDP that everyone knows and loves, but with a new look and feel.
+This is a work in progress, so please be patient with me as I work out the kinks.
+
+---
+
+### What this fork has to offer new?
+
+Typescript safety, and a more modern codebase. I rewrote the codebase using TypeScript, and added a few TS feature like
+Generics to collections. This means that you can now use the collection methods with a type definition, and get type
+safety
+when using the collection methods.
+and calling methods in a safer way
+_for collection_
+
+```typescript
+  const sub = server.subscribe('tasksByUser');
+await sub.ready()
+server
+  .collection<Task>('tasks')
+  .filter((t) => t) // t has the type of Tasks
+  .onChange(({ prev, next, predicatePassed }) => { // prev and next have the type of Tasks
+    if (predicatePassed) {
+      // do something
+    }
+  });
+const t = server.collection<Task>('tasks').fetch() // t has the type of Tasks[]
+
+```
+
+_for methods_
+
+```typescript
+
+const tasks = await server.call<[], Task[]>('fetchTasks') // Task[] is the return type
+// the first argument is the arguments to the method, and the second is the return type
+```
 
 The aim of this library is to simplify the process of working with Meteor.js server over DDP protocol using external JS
 environments (like Node.js, Cordova, Ionic, ReactNative, etc).
