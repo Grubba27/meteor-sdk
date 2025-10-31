@@ -150,22 +150,31 @@ server).
   await userSub.ready();
 
   // get non-reactive user object
-  const user = server.collection<User>('users').filter(newObjFullCopy, i - 1, this.collections[m.collection]).fetch()[0];
-  // User has type of collection ^
+  const user = server.collection<User>('users')
+    // User has type of collection ^
+    .filter(newObjFullCopy, i - 1, this.collections[m.collection])
+    .fetch()[0];
 
 
   // get reactive user object
-  const userReactiveCursor = server.collection<User>('users').filter(newObjFullCopy, i - 1, this.collections[m.collection]).reactive().one();
+  const userReactiveCursor =
+    server
+      .collection<User>('users')
+      .filter(newObjFullCopy, i - 1, this.collections[m.collection])
+      .reactive()
+      .one();
   const userReactiveObject = userReactiveCursor.data();
 
   // observing the changes
-  server.collection<User>('users').filter(newObjFullCopy, i - 1, this.collections[m.collection]).onChange(({
-                                                                                                       prev,
-                                                                                                       next
-                                                                                                     }) => {
-    console.log('prev user data', prev);
-    console.log('next user data', next);
-  });
+  server.collection<User>('users')
+    .filter(newObjFullCopy, i - 1, this.collections[m.collection])
+    .onChange(({
+      prev,
+      next
+    }) => {
+      console.log('prev user data', prev);
+      console.log('next user data', next);
+    });
 
   // observing changes in reactive data source
   userReactiveCursor.onChange((newData) => {
@@ -176,16 +185,19 @@ server).
 
   await participantsSub.ready();
 
-  const reactiveCollection = server.collection<Participants>('participants').reactive();
+  const reactiveCollection = server
+    .collection<Participants>('participants')
+    .reactive();
 
   // reactive reduce
-  const reducedReactive = reactiveCollection.reduce((acc, val, i, arr) => {
-    if (i < arr.length - 1) {
-      return acc + val.age;
-    } else {
-      return (acc + val.age) / arr.length;
-    }
-  }, 0);
+  const reducedReactive = reactiveCollection
+    .reduce((acc, val, i, arr) => {
+      if (i < arr.length - 1) {
+        return acc + val.age;
+      } else {
+        return (acc + val.age) / arr.length;
+      }
+    }, 0);
 
   // reactive mean age of all participants
   const meanAge = reducedReactive.data();
