@@ -148,8 +148,7 @@ server).
 
   const userSub = server.subscribe("user", userId);
   await userSub.ready();
-server
-  .collection<Task>('tasks')
+
   // get non-reactive user object
   const user = server.collection<User>('users').filter(newObjFullCopy, i - 1, this.collections[m.collection]).fetch()[0];
   // User has type of collection ^
