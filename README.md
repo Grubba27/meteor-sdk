@@ -164,7 +164,7 @@ server
                                                                                                        prev,
                                                                                                        next
                                                                                                      }) => {
-    console.log('previus user data', prev);
+    console.log('prev user data', prev);
     console.log('next user data', next);
   });
 
